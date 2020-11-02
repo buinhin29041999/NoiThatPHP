@@ -11,7 +11,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-    
+
     <!-- Import file xử lý nối HTML-->
     <script src="master/importHTML.js"></script>
 </head>
@@ -33,15 +33,15 @@
                     <!-- Nội dung chính -->
                     <?php
                     session_start();
-                    if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {                        
-                       echo "<script language='javascript'>location.href='401.html'</script>";
+                    if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+                        header('location:401.html');
                     }
                     ?>
                     <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>          
-                    
+                    </ol>
+
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
