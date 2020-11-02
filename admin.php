@@ -32,10 +32,10 @@
 
                     <!-- Nội dung chính -->
                     <?php
-                    // session_start();
-                    // if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-                    //     echo "<script language='javascript'>alert('Vui lòng đăng nhập!'); location.href='login.php'; </script>";
-                    // }
+                    session_start();
+                    if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {                        
+                       echo "<script language='javascript'>location.href='401.html'</script>";
+                    }
                     ?>
                     <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
