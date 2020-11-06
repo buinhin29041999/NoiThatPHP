@@ -33,8 +33,7 @@
                     <!-- Nội dung chính -->
                     <?php
                     session_start();
-                    include('DAO/connect.php');
-                    include('DAO/processLogin.php');
+                    include('DAO/connect.php');                    
                     if (!isset($_SESSION['username']) && !isset($_SESSION['password']))
                         header('location:401.html');                                       
                     ?>

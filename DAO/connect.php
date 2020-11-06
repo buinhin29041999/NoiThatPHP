@@ -5,7 +5,7 @@ $username_config = 'root';
 $password_config = 'pass';
 $cookie_usr = 'usr';
 $cookie_pas = 'pas';
-$cookie_time = (3600); // 1 hour
+$cookie_time = (600); // 10 minutes
 
 $conn = mysqli_connect($hostname_config, $username_config, $password_config, $database_config);
 if (!$conn) {
