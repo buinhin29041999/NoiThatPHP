@@ -29,6 +29,10 @@
                                         $usr = $_COOKIE[$cookie_usr];
                                         $pas = $_COOKIE[$cookie_pas];                                        
                                     }
+                                    else{
+                                        $usr='';
+                                        $pas='';
+                                    }
                                     ?>
                                 </div>
                                 <div class="card-body">
