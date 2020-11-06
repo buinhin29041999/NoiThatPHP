@@ -13,6 +13,7 @@
 </head>
 
 <body style="background-image: url('images/background_image_login.jpg');">
+
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -22,20 +23,29 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5" style="background-color: transparent;">
                                 <div class="card-header" style="color: white;">
                                     <h3 class="text-center font-weight-light my-4">Đăng nhập</h3>
+                                    <?php
+                                    include('DAO/connect.php');
+                                    if (!isset($_COOKIE[$cookie_usr])) {
+                                        echo "Cookie named '" . $cookie_usr . "' is not set!";
+                                    } else {
+                                        echo "Cookie '" . $cookie_usr . "' is set!<br>";
+                                        echo "Value is: " . $_COOKIE[$cookie_usr];
+                                    }
+                                    ?>
                                 </div>
                                 <div class="card-body">
                                     <form action="DAO/processLogin.php" method="POST">
                                         <div class="form-group">
                                             <label class="medium mb-1" for="inputEmailAddress">Email</label>
-                                            <input class="form-control py-4" style="background-color:#f2f2f2;" name="inputEmailAddress" type="email"  required />
+                                            <input class="form-control py-4" style="background-color:#f2f2f2;" name="inputEmailAddress" type="email" required />
                                         </div>
                                         <div class="form-group">
                                             <label class="medium mb-1" for="inputPassword">Mật khẩu</label>
-                                            <input class="form-control py-4" style="background-color:#f2f2f2;" name="inputPassword" type="password"  required />
+                                            <input class="form-control py-4" style="background-color:#f2f2f2;" name="inputPassword" type="password" required />
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">
-                                                <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" value="1" />
+                                                <input class="custom-control-input" id="rememberPasswordCheck" name="rememberPasswordCheck" type="checkbox" value="1" />
                                                 <label class="custom-control-label" for="rememberPasswordCheck">Ghi nhớ mật khẩu</label>
                                             </div>
                                         </div>
