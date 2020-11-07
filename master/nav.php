@@ -1,7 +1,7 @@
 <!-- Định nghĩa cho thanh menu trên cùng-->
 <?php
-    require('../DAO/connect.php');
-    session_start();
+require('../DAO/connect.php');
+session_start();
 ?>
 <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
     <a class="navbar-brand" href="admin.php">PHOXINH'S STORE</a>
@@ -21,7 +21,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href=""><?php echo $_SESSION['name']; ?></a>
                 <a class="dropdown-item" href="">Cài đặt</a>
-                
+
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="logout.php">Đăng xuất</a>
             </div>
