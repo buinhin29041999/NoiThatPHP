@@ -19,7 +19,7 @@
 <body class="sb-nav-fixed">
 
     <!-- Import thanh menu trên cùng-->
-    <div w3-include-html="master/nav.html"></div>
+    <div w3-include-html="master/nav.php"></div>
 
     <div id="layoutSidenav">
 
@@ -34,7 +34,7 @@
                     <?php
                     session_start();
                     include('DAO/connect.php');                    
-                    if (!isset($_SESSION['username']) && !isset($_SESSION['password']))
+                    if (!isset($_SESSION['username']))
                         header('location:401.html');                                       
                     ?>
                     <h1 class="mt-4">Dashboard</h1>

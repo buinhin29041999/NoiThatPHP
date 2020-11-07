@@ -1,11 +1,14 @@
 <!-- Định nghĩa cho menu ở bên trái -->
-
+<?php
+    require('../DAO/connect.php');
+    session_start();
+?>
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Trung tâm</div>
-                <a class="nav-link" href="../admin.php">
+                <a class="nav-link" href="admin.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Bảng điều khiển
                 </a>
@@ -18,12 +21,12 @@
                 </a>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="../">Danh sách</a>
+                        <a class="nav-link" href="">Danh sách</a>
                     </nav>
                 </div>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="../">Thêm</a>
+                        <a class="nav-link" href="">Thêm</a>
                     </nav>
                 </div>
 
@@ -35,12 +38,12 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="../">Danh sách</a>
+                        <a class="nav-link" href="">Danh sách</a>
                     </nav>
                 </div>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="../">Thêm</a>
+                        <a class="nav-link" href="">Thêm</a>
                     </nav>
                 </div>
 
@@ -81,7 +84,7 @@
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Đã đăng nhập <span class="dot" style="height: 10px; width: 10px; background-color:green; display: inline-block;"></span></div>
-            Admin
+            <?php echo $_SESSION['username']; ?>
         </div>
     </nav>
 </div>

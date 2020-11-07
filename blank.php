@@ -19,7 +19,7 @@
 <body class="sb-nav-fixed">
 
     <!-- Import thanh menu trên cùng-->
-    <div w3-include-html="../master/nav.html"></div>
+    <div w3-include-html="../master/nav.php"></div>
 
     <div id="layoutSidenav">
 

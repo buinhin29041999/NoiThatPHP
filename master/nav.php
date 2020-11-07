@@ -1,7 +1,10 @@
 <!-- Định nghĩa cho thanh menu trên cùng-->
-
+<?php
+    require('../DAO/connect.php');
+    session_start();
+?>
 <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
-    <a class="navbar-brand" href="../admin.php">PHOXINH'S STORE</a>
+    <a class="navbar-brand" href="admin.php">PHOXINH'S STORE</a>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
@@ -16,11 +19,11 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="../">Chào mừng Admin</a>
-                <a class="dropdown-item" href="../">Cài đặt</a>
+                <a class="dropdown-item" href=""><?php echo $_SESSION['name']; ?></a>
+                <a class="dropdown-item" href="">Cài đặt</a>
                 
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="../logout.php">Đăng xuất</a>
+                <a class="dropdown-item" href="logout.php">Đăng xuất</a>
             </div>
         </li>
     </ul>
