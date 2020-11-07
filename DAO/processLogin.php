@@ -18,7 +18,7 @@ if ($row['type'] == 'ADMIN') {
     $_SESSION['username'] = $user;
     $_SESSION['name'] = $row['full_name'];
 
-    header('location:../admin.php');
-} else echo "<script language= 'javascript'>alert('Sai email đăng nhập hoặc mật khẩu!');location.href='../login.php';</script>";
+    header('location:../views_main/admin.php');
+} else echo "<script language= 'javascript'>alert('Sai email đăng nhập hoặc mật khẩu!');location.href='../views_main/login.php';</script>";
 
 mysqli_close($conn);
