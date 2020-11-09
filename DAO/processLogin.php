@@ -17,14 +17,14 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 if (hash('md5',$staticSalt.$raw_pass.$row['salt'])==$row['password']) {    
     if ($a_check == 1) {
         setcookie($cookie_usr, $user, time() + $cookie_time, '/');
-        setcookie($cookie_pas, $pass, time() + $cookie_time, '/');
+        setcookie($cookie_pas, $raw_pass, time() + $cookie_time, '/');
     } else {
-        setcookie($cookie_usr, "", time() - 3600);
-        setcookie($cookie_pas, "", time() - 3600);
+        setcookie($cookie_usr, " ", time() - 3600);
+        setcookie($cookie_pas, " ", time() - 3600);
     }
 
     //Lưu thông tin cần thiết vào session
-    $_SESSION['username'] = $user;
+    $_SESSION['username'] = $user;    
     $_SESSION['name'] = $row['first_name'];
     $_SESSION['type']=$row['type'];
     if($row['type'] == 'ADMIN')
