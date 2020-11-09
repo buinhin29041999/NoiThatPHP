@@ -21,7 +21,7 @@
                 </a>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">Danh sách</a>
+                        <a class="nav-link" href="../views/dsKH.php">Danh sách</a>
                     </nav>
                 </div>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">

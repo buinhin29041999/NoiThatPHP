@@ -10,7 +10,7 @@
         <link href="../assets/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary" style="background-image: url('images/background_image_login.jpg');">
+    <body class="bg-primary" style="background-image: url('../images/background_image_login.jpg');">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
