@@ -20,17 +20,21 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Phục hồi mật khẩu</h3></div>
                                     <div class="card-body">
-                                        <div class="small mb-3 text-muted">Điền địa chỉ email bạn muốn tìm lại mật khẩu</div>
+                                        <div class="small mb-3 text-muted">Điền mật khẩu mới</div>
                                         <form method="POST" action="../DAO/processPassRecovery.php">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" name="inputEmailAddress" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Điền địa chỉ email" />
-                                                <input type="hidden" name="phase" value="1">
+                                                <label class="small mb-1" for="inputEmailAddress">Mật khẩu</label>
+                                                <input class="form-control py-4" name="inputPass" id="inputPass" type="text" placeholder="Điền mật khẩu" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputEmailAddress">Trả lời</label>
+                                                <input class="form-control py-4" name="inputConfirmPass" id="inputConfirmPass" type="text" placeholder="Xác nhận mật khẩu" />
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="login.php">Quay lại đăng nhập</a>                                                
-                                                <input class="btn btn-primary" type="submit" value="Xác nhận">
+                                                <a class="small" href="security_ques.php">Quay lại</a>                                                
+                                                <input class="btn btn-primary" type="submit" value="Cài lại mật khẩu">
                                             </div>
+                                            <input type="hidden" name="phase" value="3">
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">

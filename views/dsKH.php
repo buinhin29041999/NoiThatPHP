@@ -16,6 +16,7 @@
     <script src="../master/importHTML.js"></script>
 </head>
 
+
 <body class="sb-nav-fixed">
 
     <!-- Import thanh menu trên cùng-->
@@ -32,7 +33,7 @@
 
                     <!-- Nội dung chính -->
                     <h2 class="mt-4">Danh sách</h2>
-                    <ol class="breadcrumb mb-4">                        
+                    <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item ">Quản lý khách hàng</li>
                         <li class="breadcrumb-item active">Danh sách</li>
                     </ol>
@@ -42,42 +43,93 @@
                             <i class="fas fa-table mr-1"></i>
                             Khách hàng
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>                                            
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                        <div class="card-body table-responsive">
 
-                                    </tbody>
-                                </table>
-                            </div>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Họ đệm</th>
+                                        <th scope="col">Tên</th>
+                                        <th scope="col">Giới tính</th>
+                                        <th scope="col">Ngày sinh</th>
+                                        <th scope="col">Email/Tên đăng nhập</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Câu hỏi</th>
+                                        <th scope="col">Trả lời</th>
+                                        <th scope="col">Ghi chú</th>
+                                        <th scope="col">Ngày tạo</th>
+                                        <th scope="col">Ngày chỉnh sửa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    require('../DAO/connect.php');
+                                    $sql = "SELECT * from customer";
+                                    $check = mysqli_query($conn, $sql);
+                                    while ($row = mysqli_fetch_assoc($check)) {
+                                        $id = $row['id'];
+                                        $ho = $row['last_name'];
+                                        $ten = $row['first_name'];
+                                        if ($row['id'] == 0)
+                                            $gt = 'Nam';
+                                        else if ($row['id'] == 1)
+                                            $gt = 'Nữ';
+                                        else $gt = '';
+                                        $ns = $row['birthday'];
+                                        $email = $row['email'];
+                                        $dc = $row['address'];
+                                        $sdt = $row['phone'];
+                                        $type = $row['type'];
+                                        $ques = $row['remember_question'];
+                                        $ans = $row['remember_token'];
+                                        $ghichu = $row['note'];
+                                        $create = $row['create_at'];
+                                        $modify = $row['update_at'];
+                                        $color = '';
+                                        if ($row['status'] == 0)
+                                            $color = 'table-dark';
+                                        if ($row['type'] == 'ADMIN')
+                                            $color = 'bg-success';
+                                    ?>
+                                        <tr class="<?php echo $color ?>">
+                                            <th scope="row">
+                                                <form action="" method="get">
+                                                    <input type="hidden" value="<?php echo $id ?>" name="id">
+                                                    <button type="submit" title="Chỉnh sửa" class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-tools"></i>
+                                                    </button>
+                                                </form>
+                                                <form action="" method="get">
+                                                    <input type="hidden" value="<?php echo $id ?>" name="id">
+                                                    <button type="submit" <?php if ($row['status'] == 1) echo "title='Hủy kích hoạt tài khoản' class='btn btn-sm btn-outline-danger'";
+                                                    else echo "title='Kích hoạt tài khoản' class='btn btn-sm btn-outline-success'"; ?>>
+                                                        <?php if ($row['status'] == 1) echo "<i class='fas fa-ban'></i>"; else echo "<i class='fas fa-redo'></i>"; ?>
+                                                    </button>
+                                                </form>
+                                            </th>
+
+                                            <td><?php echo $ho ?></td>
+                                            <td><?php echo $ten ?></td>
+                                            <td><?php echo $gt ?></td>
+                                            <td><?php echo $ns ?></td>
+                                            <td><?php echo $email ?></td>
+                                            <td><?php echo $dc ?></td>
+                                            <td><?php echo $sdt ?></td>
+                                            <td><?php echo $ques ?></td>
+                                            <td><?php echo $ans ?></td>
+                                            <td><?php echo $ghichu ?></td>
+                                            <td><?php echo $create ?></td>
+                                            <td><?php echo $modify ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    mysqli_close($conn);
+                                    ?>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
 

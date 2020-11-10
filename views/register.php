@@ -25,7 +25,7 @@
                                     <h3 class="text-center font-weight-light my-4">Tạo tài khoản</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="../DAO/processRegister.php" method="POST">
+                                    <form method="POST" action="../DAO/processRegister.php">
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -43,23 +43,24 @@
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputEmailAddress">Email</label>
                                             <input class="form-control py-4" name="inputEmailAddress" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Địa chỉ email" required />
-                                            <span id="showerror" style="color: red;"></span>
+                                            <div id="showerror" style="color: red;"></div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="inputPassword">Mật khẩu</label>
-                                                    <input class="form-control py-4" name="inputPassword" type="password" placeholder="Mật khẩu" required />
+                                                    <input class="form-control py-4" name="inputPassword" id="inputPassword" type="password" placeholder="Mật khẩu" required />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="inputConfirmPassword">Xác nhận mật khẩu</label>
-                                                    <input class="form-control py-4" name="inputConfirmPassword" type="password" placeholder="Xác nhận mật khẩu" required />
+                                                    <input class="form-control py-4" name="inputConfirmPassword" id="inputConfirmPassword" type="password" placeholder="Xác nhận mật khẩu" required />
                                                 </div>
                                             </div>
+                                            <span id='message'></span>
                                         </div>
-                                        <div class="form-group mt-4 mb-0"><input class="btn btn-primary btn-block" type="submit" value="Tạo tài khoản"></div>
+                                        <div class="form-group mt-4 mb-0"><input type="submit" name="submit" id="submit" class="btn btn-primary btn-block" value="Tạo tài khoản" disabled></div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
@@ -72,48 +73,17 @@
             </main>
         </div>
     </div>
-    <!-- <script language="javascript">
-        $('form').submit(function() {
-
-            // Xóa trắng thẻ div show lỗi
-            $('#showerror').html('');
-
-            var username = $('#username').val();
-            var email = $('#email').val();
-
-            $.ajax({
-                url: 'do_validate.php',
-                type: 'post',
-                dataType: 'String',
-                data: {
-                    username: username,
-                    email: email
-                },
-                success: function(result) {
-
-                    // Kiểm tra xem thông tin gửi lên có bị lỗi hay không
-                    // Đây là kết quả trả về từ file processRegister.php                    
-                    var html = '';                    
-
-                    // Lấy thông tin lỗi email
-                    if ($.trim(result.email) != '') {
-                        html += result.email;
-                    }
-
-                    // Cuối cùng kiểm tra xem có lỗi không
-                    // Nếu có thì xuất hiện lỗi
-                    if (html != '') {
-                        $('#showerror').append(html);
-                    } else {
-                        // Thành công
-                        $('#showerror').append('Thêm thành công');
-                    }
-                }
-            });
-
-            return false;
+    <script>
+        $('#inputPassword, #inputConfirmPassword').on('keyup', function() {
+            if ($('#inputPassword').val() == $('#inputConfirmPassword').val()) {
+                $('#message').html('Xác nhận đúng!').css('color', 'green');
+                document.getElementById('submit').disabled = false;
+            } else {
+                $('#message').html('Xác nhận mật khẩu sai').css('color', 'red');
+                document.getElementById('submit').disabled = true;
+            }
         });
-    </script> -->
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="../assets/js/scripts.js"></script>

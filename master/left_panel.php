@@ -26,13 +26,18 @@
                 </div>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">Thêm</a>
+                        <a class="nav-link" href="">Thêm admin</a>
+                    </nav>
+                </div>
+                <div class="collapse" id="collapseKH" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="">Cấp quyền</a>
                     </nav>
                 </div>
 
 
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fas fa-male"></i><i class="fas fa-female"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
                     Quản lý hóa đơn
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
