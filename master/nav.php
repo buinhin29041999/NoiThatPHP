@@ -19,9 +19,9 @@ session_start();
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href=""><?php echo $_SESSION['name']; ?></a>
-                <a class="dropdown-item" href="">Cài đặt</a>
-
+                <a class="dropdown-item" href="uploadImage.php"><?php echo $_SESSION['name']; ?></a>
+                <a class="dropdown-item" href="changePassword.php">Đổi mật khẩu</a>
+                <a class="dropdown-item" href="">Cập nhật bảo mật</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="logout.php">Đăng xuất</a>
             </div>
