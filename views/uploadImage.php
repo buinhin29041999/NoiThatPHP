@@ -8,12 +8,22 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Admin</title>
-    <link href="../assets/css/styles.css" rel="stylesheet" /> 
+    <link href="../assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
     <!-- Import file xử lý nối HTML-->
     <script src="../master/importHTML.js"></script>
 </head>
+<?php
+require('../DAO/connect.php');
+session_start();
+$email = $_SESSION['username'];
+$sql = "SELECT image from customer WHERE email='$email'";
+
+$r = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($r);
+mysqli_close($conn);
+?>
 
 <body class="sb-nav-fixed">
 
@@ -32,10 +42,11 @@
                     <!-- Nội dung chính -->
                     <h1 class="mt-4">Trang cá nhân</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Avatar</li>
+                        <li class="breadcrumb-item">Ảnh đại diện</li>
+                        <li class="breadcrumb-item active">Cập nhật ảnh đại diện</li>
                     </ol>
-
-                    <div class="card mb-4">
+                    <div><img class=" mx-auto d-block" src="<?php echo $row['image'] ?>" alt="Mạng kém quá =((" style="max-width:200px;width:auto;max-height:250px;height: auto;"></div>
+                    <div class="card mb-4" style="margin-top: 100px;align-items: center;">
                         <form action="../DAO/upload.php" method="POST" enctype="multipart/form-data">
                             Select image to upload:</br>
                             <input type="file" name="fileToUpload" id="fileToUpload">

@@ -10,10 +10,6 @@ $cookie_time = (600); // 10 minutes
 
 //Chuỗi salt mặc định để thêm vào mật khẩu
 $staticSalt = 'NS290499';
-
-//Email để đặt lại mật khẩu
-static $mail='';
-
 //Kết nối
 $conn = mysqli_connect($hostname_config, $username_config, $password_config, $database_config);
 if (!$conn) {

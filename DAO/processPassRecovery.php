@@ -30,3 +30,4 @@ if ($phase == 1) {
     // } else echo "<script language= 'javascript'>alert('Câu hỏi bảo mặt hoặc câu trả lời không đúng!');
     // location.href='../views/security_ques.php';</script>";
 }
+mysqli_close($conn);

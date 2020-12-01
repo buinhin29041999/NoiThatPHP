@@ -18,3 +18,4 @@ $modifyDate = date("Y-m-d");
 $sql = "UPDATE customer SET first_name='$ten', last_name='$ho', gender='$gt', birthday='$ns', address='$dc', phone='$sdt', note='$note', update_at='$modifyDate' where id='$id'";
 $r = mysqli_query($conn, $sql);
 header("location:../views/dsKH.php");
+mysqli_close($conn);

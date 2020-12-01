@@ -2,6 +2,10 @@
 <?php
 require('../DAO/connect.php');
 session_start();
+$email = $_SESSION['username'];
+$sql = "SELECT image FROM customer WHERE email = '$email'";
+$r = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($r);
 ?>
 <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
     <a class="navbar-brand" href="admin.php">PHOXINH'S STORE</a>
@@ -17,7 +21,8 @@ session_start();
     <!-- Navbar-->
     <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="<?php echo $row['image']; ?>" alt="Hi" class="img-circle-10" style="width:50px; height: 50px; object-fit:cover; border-radius: 50%;"> </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="uploadImage.php"><?php echo $_SESSION['name']; ?></a>
                 <a class="dropdown-item" href="changePassword.php">Đổi mật khẩu</a>

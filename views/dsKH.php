@@ -42,9 +42,9 @@
                             <i class="fas fa-table mr-1"></i>
                             Khách hàng
                         </div>
-                        <div class="card-body table-responsive">
+                        <div class="card-body">
 
-                            <table class="table table-hover">
+                            <table class="table ">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -57,7 +57,7 @@
                                         <th scope="col">Số điện thoại</th>
                                         <th scope="col">Ghi chú</th>
                                         <th scope="col">Ngày tạo</th>
-                                        <th scope="col">Ngày chỉnh sửa</th>
+                                        <th scope="col">Ngày sửa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -141,7 +141,7 @@
 
         function func() {
             if (confirm('Bạn có chắc chắn không?')) {
-
+                
             } else {
 
             }

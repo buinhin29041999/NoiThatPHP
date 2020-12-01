@@ -15,7 +15,7 @@
     <script src="../master/importHTML.js"></script>
 </head>
 
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="background-image: url('../images/background_trang_chu.jpg');">
 
     <!-- Import thanh menu trên cùng-->
     <div w3-include-html="../master/nav.php"></div>
