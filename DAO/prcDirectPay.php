@@ -2,7 +2,6 @@
 require('connect.php');
 session_start();
 
-
 $id_user = $_SESSION['id_user'];
 
 $idSP = $_POST['id'];
@@ -29,3 +28,5 @@ $idbill = $row2['id_bill'];
 $sql4 = "INSERT INTO orderitem(ItemID,BillID,Amount,Price) VALUES ('$idSP','$idbill','$slSP','$donGia')";
 mysqli_query($conn, $sql4);
 header("location: ../views/home.php");
+
+mysqli_close($conn);

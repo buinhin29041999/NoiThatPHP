@@ -34,7 +34,7 @@
                     <h2 class="mt-4">Danh sách</h2>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item ">Khách hàng</li>
-                        <li class="breadcrumb-item active"><a href="dsKH.php?type=list">Danh sách</a></li>
+                        <li class="breadcrumb-item active"><a href="CustomerList.php?type=list">Danh sách</a></li>
                     </ol>
 
                     <div class="card mb-4">
@@ -43,7 +43,7 @@
                             Khách hàng
                         </div>
                         <div>
-                            <form action="dsKH.php" method="GET">
+                            <form action="CustomerList.php" method="GET">
                                 <input type="hidden" name="type" value="find">
                                 &nbsp;&nbsp;&nbsp;&nbsp; Tìm kiếm theo:&nbsp;&nbsp;&nbsp;
                                 <select name="timTheo">
@@ -116,7 +116,7 @@
                                     ?>
                                         <tr class="<?php echo $color ?>">
                                             <th scope="row">
-                                                <form action="modifyAcc.php" method="POST">
+                                                <form action="CustomerEdit.php" method="POST">
                                                     <input type="hidden" value="<?php echo $id ?>" name="id">
                                                     <button type="submit" title="Chỉnh sửa" class="btn btn-sm btn-outline-primary">
                                                         <i class="fas fa-tools"></i>

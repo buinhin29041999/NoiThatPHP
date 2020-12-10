@@ -9,5 +9,5 @@ if ($row['status'] == 1) $status = 0;
 
 $sql = "UPDATE customer SET status='$status' where id='$id'";
 $r = mysqli_query($conn, $sql);
-header("location:../views/dsKH.php");
+header("location:../views/CustomerList.php");
 mysqli_close($conn);

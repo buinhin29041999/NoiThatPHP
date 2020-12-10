@@ -24,7 +24,7 @@ if ($_POST['flag'] == 'changePass1') {
     $sql = "UPDATE customer set password = '$crypt', salt = '$salt' WHERE email = '$current_email'";
     mysqli_query($conn, $sql);
     if ($_SESSION['type'] == 'ADMIN')
-        header("location:../views/dsKH.php");
+        header("location:../views/CustomerList.php");
     else header("location:../views/home.php");
 
     mysqli_close($conn);

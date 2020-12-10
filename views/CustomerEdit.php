@@ -83,7 +83,7 @@ if (isset($_POST['id'])) {
                             </tr>
                             <tr>
                                 <td><input type="submit" class="btn btn-primary" value="Sửa"></td>
-                                <td><a class="btn btn-primary" href="dsKH.php?type=list">Quay lại</a></td>
+                                <td><a class="btn btn-primary" href="CustomerList.php?type=list">Quay lại</a></td>
                             </tr>
                         </table>
                         <input type="hidden" name="flag" value="modifyAcc">

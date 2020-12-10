@@ -14,6 +14,7 @@ session_start();
                 </a>
                 <div class="sb-sidenav-menu-heading">Quản lý</div>
 
+
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKH" aria-expanded="false" aria-controls="collapseKH">
                     <div class="sb-nav-link-icon"><i class="fas fa-male"></i><i class="fas fa-female"></i></div>
                     Khách hàng
@@ -21,7 +22,7 @@ session_start();
                 </a>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="../views/dsKH.php?type=list">Danh sách</a>
+                        <a class="nav-link" href="../views/CustomerList.php?type=list">Danh sách</a>
                     </nav>
                 </div>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
@@ -29,13 +30,8 @@ session_start();
                         <a class="nav-link" href="">Cấp quyền</a>
                     </nav>
                 </div>
-                <!-- <div class="collapse" id="collapseKH" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">Cấp quyền</a>
-                    </nav>
-                </div> -->
 
-
+                <!-- Section2 -->
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
                     Hóa đơn
@@ -45,7 +41,23 @@ session_start();
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="../views/dsBill.php">Danh sách</a>
                     </nav>
-                </div>               
+                </div>
+                <!-- /Section2 -->
+
+                <!-- Section3 -->
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sanpham" aria-expanded="false" aria-controls="sanpham">
+                    <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
+                    Sản phẩm
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="sanpham" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductList.php">Danh sách</a>
+                    </nav>
+                </div>
+                <!-- /Section3 -->
+
+
 
                 <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>

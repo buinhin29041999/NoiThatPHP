@@ -34,7 +34,7 @@ if (
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "<script language='javascript'> alert('$error');location.href='../views/uploadImage.php'";
+    echo "<script language='javascript'> alert('$error');location.href='../views/CustomerUploadImage.php'";
     // if everything is ok, try to upload file
 } else {
     $img = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);

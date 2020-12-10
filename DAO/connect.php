@@ -6,7 +6,7 @@ $username_config = 'root';
 $password_config = 'pass';
 $cookie_usr = 'usr';
 $cookie_pas = 'pas';
-$cookie_time = (600); // 10 minutes
+$cookie_time = (3600); // 1 hour
 
 //Chuỗi salt mặc định để thêm vào mật khẩu
 $staticSalt = 'NS290499';
