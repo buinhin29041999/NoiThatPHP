@@ -22,8 +22,6 @@
 
     <div id="layoutSidenav">
 
-        <!-- Import menu bên trái-->
-        <div w3-include-html="../master/left_panel.php"></div>
 
         <div id="layoutSidenav_content">
             <main>

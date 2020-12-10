@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Danh sách khách hàng</title>
-    <link href="../assets/css/styles.css" rel="stylesheet" />  
+    <link href="../assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
     <!-- Import file xử lý nối HTML-->
@@ -33,8 +33,8 @@
                     <!-- Nội dung chính -->
                     <h2 class="mt-4">Danh sách</h2>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item ">Quản lý khách hàng</li>
-                        <li class="breadcrumb-item active">Danh sách</li>
+                        <li class="breadcrumb-item ">Khách hàng</li>
+                        <li class="breadcrumb-item active"><a href="dsKH.php?type=list">Danh sách</a></li>
                     </ol>
 
                     <div class="card mb-4">
@@ -42,30 +42,56 @@
                             <i class="fas fa-table mr-1"></i>
                             Khách hàng
                         </div>
-                        <div class="card-body">
+                        <div>
+                            <form action="dsKH.php" method="GET">
+                                <input type="hidden" name="type" value="find">
+                                &nbsp;&nbsp;&nbsp;&nbsp; Tìm kiếm theo:&nbsp;&nbsp;&nbsp;
+                                <select name="timTheo">
+                                    <option>Tên</option>
+                                    <option>Số điện thoại</option>
+                                    <option>Email</option>
+                                </select>
+                                <input type="text" name="findName" placeholder="Nhập từ khóa cần tìm" required style="margin-top: 22px; margin-left: 55px; width: 310px; font-size: 15px;">
+                                <button class="btn btn-sm btn-primary" style="margin-left: 20px;"><i class="fas fa-search"></i>Tìm kiếm</button>
+                            </form>
 
-                            <table class="table ">
+                        </div>
+                        <div class="card-body">
+                            <table style="text-align: center;" border="1">
                                 <thead>
-                                    <tr>
+                                    <tr style="background-color: #e0e0d1;">
                                         <th scope="col">#</th>
-                                        <th scope="col">Họ đệm</th>
-                                        <th scope="col">Tên</th>
-                                        <th scope="col">Giới tính</th>
-                                        <th scope="col">Ngày sinh</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Địa chỉ</th>
-                                        <th scope="col">Số điện thoại</th>
-                                        <th scope="col">Ghi chú</th>
-                                        <th scope="col">Ngày tạo</th>
-                                        <th scope="col">Ngày sửa</th>
+                                        <th scope="col" style="width: 140px;">Họ đệm</th>
+                                        <th scope="col" style="width: 90px;">Tên</th>
+                                        <th scope="col" style="width: 90px;">Giới tính</th>
+                                        <th scope="col" style="width: 110px;">Ngày sinh</th>
+                                        <th scope="col" style="width: 210px;">Email</th>
+                                        <th scope="col" style="width: 270px;">Địa chỉ</th>
+                                        <th scope="col" style="width: 110px;">Điện thoại</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <input type="hidden" name="type" value="">
                                     <?php
                                     require('../DAO/connect.php');
-                                    $sql = "SELECT * from customer";
-                                    $check = mysqli_query($conn, $sql);
-                                    while ($row = mysqli_fetch_assoc($check)) {
+                                    $sql = "";
+                                    if ($_GET['type'] == "list")
+                                        $sql = "SELECT * from customer";
+                                    elseif ($_GET['type'] == "find") {
+                                        if (isset($_GET['findName']))
+                                            $ten = $_GET['findName'];
+                                        if ($_GET['timTheo'] == "Tên")
+                                            $tim = "first_name";
+                                        elseif ($_GET['timTheo'] == "Số điện thoại")
+                                            $tim = "phone";
+                                        elseif ($_GET['timTheo'] == "Email")
+                                            $tim = "email";
+                                        $sql = "SELECT  * FROM customer WHERE $tim like '$ten'";
+                                    }
+                                    $result  = mysqli_query($conn, $sql);
+                                    $rows = mysqli_num_rows($result);
+                                    while ($row = mysqli_fetch_assoc($result)) {
                                         $id = $row['id'];
                                         $ho = $row['last_name'];
                                         $ten = $row['first_name'];
@@ -98,25 +124,23 @@
                                                 </form>
                                                 <form action="../DAO/prcActiveAcc.php" method="GET">
                                                     <input type="hidden" value="<?php echo $id ?>" name="id">
-                                                    <button type="submit" <?php if ($row['status'] == 1) echo "title='Vô hiệu hóa' class='btn btn-sm btn-outline-danger'";
-                                                                            else echo "title='Kích hoạt tài khoản' class='btn btn-sm btn-outline-success'";
-                                                                            if ($row['type'] == 'ADMIN') echo 'disabled'; ?>>
+                                                    <button type="submit" onclick="return confirm('Bạn muốn vô hiệu hóa tài khoản này hay không?')" <?php if ($row['status'] == 1) echo "title='Vô hiệu hóa' class='btn btn-sm btn-outline-danger'";
+                                                                                                                                                    else echo "title='Kích hoạt tài khoản' class='btn btn-sm btn-outline-success'";
+                                                                                                                                                    if ($row['type'] == 'ADMIN') echo 'disabled'; ?>>
                                                         <?php if ($row['status'] == 1) echo "<i class='fas fa-ban'></i>";
                                                         else echo "<i class='fas fa-redo'></i>"; ?>
                                                     </button>
                                                 </form>
                                             </th>
 
-                                            <td><?php echo $ho ?></td>
-                                            <td><?php echo $ten ?></td>
+                                            <td style="color: #0052cc;"><?php echo $ho ?></td>
+                                            <td style="color: #0052cc;"><?php echo $ten ?></td>
                                             <td><?php echo $gt ?></td>
                                             <td><?php echo $ns ?></td>
                                             <td><?php echo $email ?></td>
                                             <td><?php echo $dc ?></td>
-                                            <td><?php echo $sdt ?></td>
-                                            <td><?php echo $ghichu ?></td>
-                                            <td><?php echo $create ?></td>
-                                            <td><?php echo $modify ?></td>
+                                            <td>0<?php echo $sdt ?></td>
+
                                         </tr>
                                     <?php
                                     }
@@ -124,6 +148,10 @@
                                     ?>
                                 </tbody>
                             </table>
+                            <div style="background-color: #99ccff; margin-top: 5px; padding-left: 30px; padding-top: 10px;padding-bottom: 10px;">
+                                Tổng số khách hàng: <span style="color: red; font-weight: bold;"><?php echo $rows ?></span>
+                                |
+                            </div>
 
                         </div>
                     </div>
@@ -138,19 +166,11 @@
     <!-- Thực thi hàm import các file HTML vào HTML -->
     <script>
         includeHTML();
-
-        function func() {
-            if (confirm('Bạn có chắc chắn không?')) {
-                
-            } else {
-
-            }
-        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-   
+
 </body>
 
 </html>

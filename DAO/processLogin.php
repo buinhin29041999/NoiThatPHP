@@ -27,10 +27,11 @@ if (hash('md5',$staticSalt.$raw_pass.$row['salt'])==$row['password']) {
     $_SESSION['username'] = $email;    
     $_SESSION['name'] = $row['first_name'];
     $_SESSION['type']=$row['type'];
+    $_SESSION['id_user']=$row['id'];
     if($row['type'] == 'ADMIN')
          header('location:../views/admin.php');
     else{
-        
+        header('location:../views/home.php');
     }
 } else echo "<script language= 'javascript'>alert('Sai email đăng nhập hoặc mật khẩu!');location.href='../views/login.php';</script>";
 

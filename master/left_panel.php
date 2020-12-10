@@ -3,7 +3,7 @@
 require('../DAO/connect.php');
 session_start();
 ?>
-<div id="layoutSidenav_nav">
+<div id="layoutSidenav_nav" style="font-weight: bold;">
     <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
@@ -16,12 +16,12 @@ session_start();
 
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKH" aria-expanded="false" aria-controls="collapseKH">
                     <div class="sb-nav-link-icon"><i class="fas fa-male"></i><i class="fas fa-female"></i></div>
-                    Quản lý khách hàng
+                    Khách hàng
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="../views/dsKH.php">Danh sách</a>
+                        <a class="nav-link" href="../views/dsKH.php?type=list">Danh sách</a>
                     </nav>
                 </div>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
@@ -38,20 +38,14 @@ session_start();
 
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
-                    Quản lý hóa đơn
+                    Hóa đơn
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">Danh sách</a>
+                        <a class="nav-link" href="../views/dsBill.php">Danh sách</a>
                     </nav>
-                </div>
-                <div class="collapse" id="collapseLayouts" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">Thêm</a>
-                    </nav>
-                </div>
-
+                </div>               
 
                 <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>

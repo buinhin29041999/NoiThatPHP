@@ -48,7 +48,7 @@ if ($uploadOk == 0) {
     mysqli_query($conn, $sql);
     if ($_SESSION['type'] == 'ADMIN')
         header("location:../views/admin.php");
-    else header("");
+    else header("location:../views/home.php");
 
     mysqli_close($conn);
 }

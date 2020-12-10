@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Thay đổi mật khẩu</title>
-    <link href="../assets/css/styles.css" rel="stylesheet" />   
+    <link href="../assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
     <!-- Import file xử lý nối HTML-->
@@ -21,9 +21,6 @@
     <div w3-include-html="../master/nav.php"></div>
 
     <div id="layoutSidenav">
-
-        <!-- Import menu bên trái-->
-        <div w3-include-html="../master/left_panel.php"></div>
 
         <div id="layoutSidenav_content">
             <main>

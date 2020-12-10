@@ -25,7 +25,7 @@ if ($_POST['flag'] == 'changePass1') {
     mysqli_query($conn, $sql);
     if ($_SESSION['type'] == 'ADMIN')
         header("location:../views/dsKH.php");
-    else header("");
+    else header("location:../views/home.php");
 
     mysqli_close($conn);
 }
