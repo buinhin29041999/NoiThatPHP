@@ -30,61 +30,72 @@
                 <div class="container-fluid">
 
                     <!-- Nội dung chính -->
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item ">Sản phẩm</li>
+                        <li class="breadcrumb-item active"><a href="CustomerList.php?type=list">Sửa</a></li>
+                    </ol>
                     <form method="post">
-                        <table border="1" cellpadding="0" cel cellspacing="0" bordercolor="#3399FF">
+                        <table border="1" cellpadding="10" cellspacing="0" bordercolor="#3399FF" align="center">
                             <tr>
                                 <td>Mã sản phẩm</td>
-                                <td><input type="text" value="" name="ma" /></td>
+                                <td><input type="number" value="" name="ma" class="form-control py-2"/></td>
                             </tr>
 
                             <tr>
                                 <td>Tên sản phẩm</td>
-                                <td><input type="text" value="" name="ten" /></td>
+                                <td><input type="text" value="" name="ten" class="form-control py-2"/></td>
+                            </tr>
+                            <tr>
+                                <td>Đơn giá</td>
+                                <td><input type="number" value="" name="dg" class="form-control py-2"/></td>
                             </tr>
 
                             <tr>
                                 <td>Loại hàng</td>
-                                <td><input type="text" value="" name="loai" /></td>
+                                <td><input type="text" value="" name="loai" class="form-control py-2" /></td>
                             </tr>
 
                             <tr>
                                 <td>Xuất xứ</td>
-                                <td><input type="text" value="" name="xuatxu" /></td>
+                                <td><input type="text" value="" name="xuatxu" class="form-control py-2" /></td>
                             </tr>
 
                             <tr>
                                 <td>Kiểu dáng</td>
-                                <td><input type="text" value="" name="kieu" /></td>
+                                <td><input type="text" value="" name="kieu" class="form-control py-2" /></td>
                             </tr>
 
                             <tr>
                                 <td>Màu sắc</td>
-                                <td><input type="text" value="" name="mau" /></td>
+                                <td><input type="text" value="" name="mau" class="form-control py-2" /></td>
                             </tr>
 
                             <tr>
                                 <td>Số lượng</td>
-                                <td><input type="text" value="" name="sl" /></td>
+                                <td><input type="number" value="" name="sl" class="form-control py-2" /></td>
                             </tr>
 
                             <tr>
-                                <td></td>
-                                <td><input type="submit" value="Sửa" name="nhap" /></td>
+                                <td colspan="2" align="center"><input class="btn btn-primary" type="submit" value="Sửa" name="nhap" /></td>
                             </tr>
 
                         </table>
                     </form>
                     <?php
-                    include("connect.php");
-                    $ma = $_POST["ma"];
-                    $ten = $_POST["ten"];
-                    $loai = $_POST["loai"];
-                    $xuatxu = $_POST["xuatxu"];
-                    $kieudang = $_POST["kieu"];
-                    $mau = $_POST["mau"];
-                    $solhuong = $_POST["sl"];
-                    $sql = "UPDATE productmanagement SET MaSP='$ma',TenSanPham='$ten',LoaiHang='$loai',XuatXu='$xuatxu',KieuDang='$kieudang',MauSac='$mau',SoLuong='$solhuong' WHERE MaSP='$ma'";
-                    mysqli_query($conn, $sql);
+                    include("../DAO/connect.php");
+                    if (isset($_POST["ma"])) {
+                        $ma = $_POST["ma"];
+                        $ten = $_POST["ten"];
+                        $dg = $_POST["dg"];
+                        $loai = $_POST["loai"];
+                        $xuatxu = $_POST["xuatxu"];
+                        $kieudang = $_POST["kieu"];
+                        $mau = $_POST["mau"];
+                        $solhuong = $_POST["sl"];
+                        $sql = "UPDATE product SET TenSanPham='$ten',DonGia='$dg',LoaiHang='$loai',XuatXu='$xuatxu',KieuDang='$kieudang',MauSac='$mau',SoLuong='$solhuong' WHERE id='$ma'";
+                        header("location:ProductList.php");
+                         mysqli_query($conn, $sql);
+                    }
                     ?>
                     <!-- Hết nội dung chính-->
                 </div>

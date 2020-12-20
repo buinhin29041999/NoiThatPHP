@@ -46,18 +46,18 @@
                             <form action="CustomerList.php" method="GET">
                                 <input type="hidden" name="type" value="find">
                                 &nbsp;&nbsp;&nbsp;&nbsp; Tìm kiếm theo:&nbsp;&nbsp;&nbsp;
-                                <select name="timTheo">
+                                <select name="timTheo" >
                                     <option>Tên</option>
                                     <option>Số điện thoại</option>
                                     <option>Email</option>
                                 </select>
-                                <input type="text" name="findName" placeholder="Nhập từ khóa cần tìm" required style="margin-top: 22px; margin-left: 55px; width: 310px; font-size: 15px;">
+                                <input type="text" name="findName" placeholder="Nhập từ khóa cần tìm" required style="margin-top: 22px; margin-left: 55px; width: 310px; font-size: 15px;" >
                                 <button class="btn btn-sm btn-primary" style="margin-left: 20px;"><i class="fas fa-search"></i>Tìm kiếm</button>
                             </form>
 
                         </div>
                         <div class="card-body">
-                            <table style="text-align: center;" border="1">
+                            <table style="text-align: center;" border="1" cellpadding="10">
                                 <thead>
                                     <tr style="background-color: #e0e0d1;">
                                         <th scope="col">#</th>
@@ -110,11 +110,11 @@
                                         $modify = $row['update_at'];
                                         $color = '';
                                         if ($row['status'] == 0)
-                                            $color = 'table-dark';
+                                            $color = '#a1b3a8';
                                         if ($row['type'] == 'ADMIN')
-                                            $color = 'bg-success';
+                                            $color = '#52eb8d';
                                     ?>
-                                        <tr class="<?php echo $color ?>">
+                                        <tr style="background: <?php echo $color ?>">
                                             <th scope="row">
                                                 <form action="CustomerEdit.php" method="POST">
                                                     <input type="hidden" value="<?php echo $id ?>" name="id">

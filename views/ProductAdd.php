@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Admin</title>
+    <title>Thêm sản phẩm</title>
     <link href="../assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
@@ -30,61 +30,69 @@
                 <div class="container-fluid">
 
                     <!-- Nội dung chính -->
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item ">Sản phẩm</li>
+                        <li class="breadcrumb-item active">Thêm</li>
+                    </ol>
                     <form method="post">
-                        <table border="1" cellpadding="0" cellspacing="0" bordercolor="#3399FF">
-                            <tr>
-                                <td>Mã sản phẩm</td>
-                                <td><input type="text" name="txt_ma" value="" /></td>
-                            </tr>
+                        <table border="1" cellpadding="10" cellspacing="0" bordercolor="#3399FF" align="center">
                             <tr>
                                 <td>Hình ảnh</td>
-                                <td><input type="file" name="upload_image"></td>
+                                <td><input type="file" name="upload_image" ></td>
                             </tr>
                             <tr>
                                 <td>Tên sản phẩm</td>
-                                <td><input type="text" name="txt_ten" value="" /></td>
+                                <td><input type="text" name="txt_ten" value=""  class="form-control py-2"/></td>
+                            </tr>
+                            <tr>
+                                <td>Đơn giá</td>
+                                <td><input type="number" name="txt_dongia" value="" class="form-control py-2"/></td>
                             </tr>
 
                             <tr>
                                 <td>Loại hàng</td>
-                                <td><input type="text" name="txt_loai" value="" /></td>
+                                <td><input type="text" name="txt_loai" value="" class="form-control py-2" /></td>
                             </tr>
 
                             <tr>
-                                <td align="center">Xuất xứ</td>
-                                <td><input type="text" name="txt_xuatxu" value="" /></td>
+                                <td>Xuất xứ</td>
+                                <td><input type="text" name="txt_xuatxu" value="" class="form-control py-2"/></td>
                             </tr>
                             <tr>
                                 <td>Kiểu dáng</td>
-                                <td><input type="text" name="txt_kieudang" value="" /></td>
+                                <td><input type="text" name="txt_kieudang" value="" class="form-control py-2"/></td>
                             </tr>
                             <tr>
                                 <td>Màu sắc</td>
-                                <td><input type="text" name="txt_mausac" value="" /></td>
+                                <td><input type="text" name="txt_mausac" value="" class="form-control py-2"/></td>
                             </tr>
                             <tr>
                                 <td>Số lượng</td>
-                                <td><input type="text" name="txt_soluong" value="" /></td>
+                                <td><input type="number" name="txt_soluong" value="" class="form-control py-2"/></td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td><input type="submit" value="Nhập" name="" /></td>
+                                
+                                <td colspan="2" align="center"><input type="submit" value="Nhập" name="" class="btn btn-primary"/></td>
                             </tr>
                         </table>
                     </form>
 
                     <?php
-                    include("connect.php");
-                    $ma = $_POST['txt_ma'];
-                    $anh = $_POST["upload_image"];
-                    $ten = $_POST["txt_ten"];
-                    $loai = $_POST["txt_loai"];
-                    $xuatxu = $_POST["txt_xuatxu"];
-                    $kieu = $_POST["txt_kieudang"];
-                    $mau = $_POST["txt_mausac"];
-                    $soluong = $_POST["txt_soluong"];
-                    $sql = "INSERT INTO productmanagement VALUES('$ma','$anh','$ten','$loai','$xuatxu','$kieu','$mau','$soluong')";
-                    mysqli_query($conn, $sql);
+                    include("../DAO/connect.php");
+                    if(isset($_POST["upload_image"])){
+                        $anh = $_POST["upload_image"];
+                        $ten = $_POST["txt_ten"];
+                        $dongia = $_POST["txt_dongia"];
+                        $loai = $_POST["txt_loai"];
+                        $xuatxu = $_POST["txt_xuatxu"];
+                        $kieu = $_POST["txt_kieudang"];
+                        $mau = $_POST["txt_mausac"];
+                        $soluong = $_POST["txt_soluong"];
+                        $sql = "INSERT INTO product(HinhAnh, TenSanPham, DonGia, LoaiHang, XuatXu, KieuDang, MauSac, SoLuong) VALUES('$anh','$ten','$dongia','$loai','$xuatxu','$kieu','$mau','$soluong')";
+                        mysqli_query($conn, $sql);
+                        header("location:ProductList.php");
+                    }
+
                     ?>
                     <!-- Hết nội dung chính-->
                 </div>

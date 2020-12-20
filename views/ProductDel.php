@@ -30,15 +30,19 @@
                 <div class="container-fluid">
 
                     <!-- Nội dung chính -->
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item ">Sản phẩm</li>
+                        <li class="breadcrumb-item active"><a href="CustomerList.php?type=list">Xóa</a></li>
+                    </ol>
                     <form method="post">
 
-                        <table border="1" cellpadding="0" cellpadding="0">
+                        <table border="1" cellpadding="10" cellpadding="0" align="center">
                             <tr>
                                 <td align="center" colspan="2">Xóa</td>
                             </tr>
                             <tr>
                                 <td>Mã sản phẩm</td>
-                                <td><input type="text" name="txt_ma" /></td>
+                                <td><input type="text" name="txt_ma" class="form-control py-2" /></td>
                             </tr>
                             <td></td>
                             <td><input type="submit" name="btn_xoa" value="Xóa" /></td>
@@ -46,12 +50,14 @@
                         </table>
                     </form>
                     <?php
-                    include("connect.php");
+                    include("../DAO/connect.php");
+                    if (isset($_POST["txt_ma"])) {
+                        $ma = $_POST["txt_ma"];
 
-                    $ma = $_POST["txt_ma"];
-
-                    $sql = "DELETE FROM productmanagement WHERE MaSP='$ma'; ";
-                    mysqli_query($conn, $sql);
+                        $sql = "DELETE FROM product WHERE id='$ma'; ";
+                        mysqli_query($conn, $sql);
+                        header("location:ProductList.php");
+                    }
                     ?>
                     <!-- Hết nội dung chính-->
                 </div>

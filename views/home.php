@@ -30,12 +30,6 @@
 
                 <img src="../images/logo.png" style="max-width: 150px;max-height: 150px;margin-top: 50px;">
 
-                <!-- <div class="list-group" style="margin-top: 50px;">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div> -->
-
             </div>
             <!-- /.col-lg-3 -->
 
@@ -77,8 +71,6 @@
                         $id = $row['id'];
                         $ten = $row['TenSanPham'];
                         $dongia = $row['DonGia'];
-
-                        $mota = $row['MoTa'];
                     ?>
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
@@ -88,7 +80,7 @@
                                         <a href="#"><?php echo $ten ?></a>
                                     </h4>
                                     <h5><?php echo $dongia ?> </h5>
-                                    <p class="card-text"><?php echo $mota ?></p>
+                                    <p class="card-text"></p>
                                 </div>
                                 <div class="card-footer">
                                     <form method="POST" action="payPage_addInf.php">

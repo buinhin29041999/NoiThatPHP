@@ -3,7 +3,7 @@
 $hostname_config = 'localhost';
 $database_config = 'db_web_noi_that';
 $username_config = 'root';
-$password_config = 'pass';
+$password_config = '';
 $cookie_usr = 'usr';
 $cookie_pas = 'pas';
 $cookie_time = (3600); // 1 hour

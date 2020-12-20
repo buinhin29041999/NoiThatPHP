@@ -46,7 +46,7 @@ session_start();
 
                 <!-- Section3 -->
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sanpham" aria-expanded="false" aria-controls="sanpham">
-                    <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-couch"></i></div>
                     Sản phẩm
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -55,8 +55,50 @@ session_start();
                         <a class="nav-link" href="../views/ProductList.php">Danh sách</a>
                     </nav>
                 </div>
+                <div class="collapse" id="sanpham" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductAdd.php">Thêm</a>
+                    </nav>
+                </div>
+                <div class="collapse" id="sanpham" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductEdit.php">Sửa</a>
+                    </nav>
+                </div>
+                <div class="collapse" id="sanpham" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductDel.php">Xóa</a>
+                    </nav>
+                </div>
                 <!-- /Section3 -->
 
+                <!--Section4-->
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#hangton" aria-expanded="false" aria-controls="hangton">
+                    <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
+                    Hàng tồn
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="hangton" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductLeftList.php">Danh sách</a>
+                    </nav>
+                </div>
+                <div class="collapse" id="hangton" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductLeftAdd.php">Thêm</a>
+                    </nav>
+                </div>
+                <div class="collapse" id="hangton" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductLeftEdit.php">Sửa</a>
+                    </nav>
+                </div>
+                <div class="collapse" id="hangton" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../views/ProductLeftDel.php">Xóa</a>
+                    </nav>
+                </div>
+                <!--/Section4-->
 
 
                 <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
