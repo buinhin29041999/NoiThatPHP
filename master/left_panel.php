@@ -22,7 +22,7 @@ session_start();
                 </a>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="../views/CustomerList.php?type=list">Danh sách</a>
+                        <a class="nav-link" href="../views/CustomerList.php?type=list&currentpage=1">Danh sách</a>
                     </nav>
                 </div>
                 <div class="collapse" id="collapseKH" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">

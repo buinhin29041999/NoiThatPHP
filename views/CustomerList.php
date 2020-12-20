@@ -43,15 +43,15 @@
                             Khách hàng
                         </div>
                         <div>
-                            <form action="CustomerList.php" method="GET">
+                            <form  method="GET">
                                 <input type="hidden" name="type" value="find">
                                 &nbsp;&nbsp;&nbsp;&nbsp; Tìm kiếm theo:&nbsp;&nbsp;&nbsp;
-                                <select name="timTheo" >
+                                <select name="timTheo">
                                     <option>Tên</option>
                                     <option>Số điện thoại</option>
                                     <option>Email</option>
                                 </select>
-                                <input type="text" name="findName" placeholder="Nhập từ khóa cần tìm" required style="margin-top: 22px; margin-left: 55px; width: 310px; font-size: 15px;" >
+                                <input type="text" name="findName" placeholder="Nhập từ khóa cần tìm" required style="margin-top: 22px; margin-left: 55px; width: 310px; font-size: 15px;">
                                 <button class="btn btn-sm btn-primary" style="margin-left: 20px;"><i class="fas fa-search"></i>Tìm kiếm</button>
                             </form>
 
@@ -73,11 +73,25 @@
                                 </thead>
                                 <tbody>
                                     <input type="hidden" name="type" value="">
+
                                     <?php
                                     require('../DAO/connect.php');
+
+                                    //phân trang
+                                    if (isset($_GET['currentpage']))
+                                        $currentpage = $_GET['currentpage'];
+                                    else $currentpage = 1;
+
+                                    $limit = 2;
+                                    $start = ($currentpage - 1) * $limit;
+
+                                    $totalCustomer = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM customer"));
+                                    $totalPage = ceil($totalCustomer / $limit);
+
                                     $sql = "";
+                                    $sqltong = "SELECT  * FROM customer";
                                     if ($_GET['type'] == "list")
-                                        $sql = "SELECT * from customer";
+                                        $sql = "SELECT  * FROM customer LIMIT " . $start . "," . $limit;
                                     elseif ($_GET['type'] == "find") {
                                         if (isset($_GET['findName']))
                                             $ten = $_GET['findName'];
@@ -87,10 +101,11 @@
                                             $tim = "phone";
                                         elseif ($_GET['timTheo'] == "Email")
                                             $tim = "email";
-                                        $sql = "SELECT  * FROM customer WHERE $tim like '$ten'";
+                                        $sql = "SELECT  * FROM customer WHERE $tim like '$ten' LIMIT " . $start . "," . $limit;
+                                        
                                     }
                                     $result  = mysqli_query($conn, $sql);
-                                    $rows = mysqli_num_rows($result);
+                                    $rows = mysqli_num_rows(mysqli_query($conn, $sqltong));
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $id = $row['id'];
                                         $ho = $row['last_name'];
@@ -157,6 +172,23 @@
                     </div>
 
                     <!-- Hết nội dung chính-->
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">Trang </a>
+                            </li>
+                            <?php for ($i = 1; $i <= $totalPage; $i++) {
+                                if ($i == $currentpage)
+                                    $active = "active";
+                                else $active = "";
+                            ?>
+                                <li class="page-item <?php echo $active ?>">
+                                    <a class="page-link" href="CustomerList.php?type=list&currentpage= <?php echo $i ?>"><?php echo $i; ?></a></li>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </nav>
                 </div>
             </main>
             <div w3-include-html="../master/footer.html"></div>

@@ -59,11 +59,12 @@
                                 $idSP = $row['ItemID'];
                                 $slSP = $row['Amount'];
                                 $idCart = $row['id'];
-
+                                
                                 $sql2 = "SELECT * FROM product WHERE id='$idSP'";
                                 $r2 = mysqli_query($conn, $sql2);
                                 $row2 = mysqli_fetch_assoc($r2);
                                 $tenSP = $row2['TenSanPham'];
+                                $anh=$row2['HinhAnh'];
 
                                 if ($row2['SoLuong'] >= 1)
                                     $status = "<p style = 'color: green;'>Còn hàng</p>";
@@ -71,7 +72,7 @@
                                 $donGia = $row2['DonGia'];
                                 $tongTien += $slSP * $donGia;
                             ?><tr>
-                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                                    <td><img src="../images/<?php echo $anh ?>"  style="max-width: 100px; max-height: 100px;"/> </td>
                                     <td style="color: blue;"><?php echo $tenSP ?></td>
                                     <td><?php echo $status ?>
 
