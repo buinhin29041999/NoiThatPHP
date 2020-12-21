@@ -41,7 +41,7 @@
                                     </tr>
                                     <tr>
                                         <td>Mật khẩu hiện tại</td>
-                                        <td><input type="password" name="password" required></td>
+                                        <td><input type="password" name="password" required class="form-control py-2"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" align="center"><input type="submit" value="Xác nhận"></td>

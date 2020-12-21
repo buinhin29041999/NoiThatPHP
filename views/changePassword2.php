@@ -42,11 +42,11 @@
                                     </tr>
                                     <tr>
                                         <td>Mật khẩu mới</td>
-                                        <td><input type="password" name="password" id="password" required></td>
+                                        <td><input type="password" name="password" id="password" required class="form-control py-2"></td>
                                     </tr>
                                     <tr>
                                         <td>Nhập lại mật khẩu</td>
-                                        <td><input type="password" name="rePassword" id="rePassword" required></td>
+                                        <td><input type="password" name="rePassword" id="rePassword" required class="form-control py-2"></td>
 
                                     </tr>
                                     <tr>
